@@ -1,6 +1,6 @@
 from django.db import models
 
-# Create your models here.
+# Create your models here.hola
 
 class Aspirante(models.Model):
     tipoDocumento = models.CharField('tipoDocumento', max_length=200)
