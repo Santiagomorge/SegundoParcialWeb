@@ -1,16 +1,21 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponse, JsonResponse
-from .models import Aspirante
+from .models import Aspirante, EvaluacionAdmision
 from .forms import CrearNuevoAspirante
 # Create your views here.
+
+def inicio(request):
+    return render(request, 'index.html')
 
 def ListarAspirantes(request):
     aspirantes = list(Aspirante.objects.values()) 
     return JsonResponse(aspirantes, safe = False)
 
+def listarEvaluaciones(request):
+    evaluaciones = list(EvaluacionAdmision.objects.values())
+    return JsonResponse(evaluaciones, safe = False)
 
 def aspiranteBD(request):
-    
     aspirantes = Aspirante.objects.all()
     context = ({'aspirantes': aspirantes })
     return render(request, 'ver_aspirantes.html', context)
