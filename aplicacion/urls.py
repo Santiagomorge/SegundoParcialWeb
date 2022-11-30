@@ -6,5 +6,7 @@ urlpatterns = [
     path('aplicacion/', views.ListarAspirantes ),
     path("listarPorCargo/", views.listarEvaluaciones),
     path('registrar/', views.CrearAspirante),
-    path('ver_aspirantes/', views.aspiranteBD)
+    path('ver_aspirantes/', views.aspiranteBD),
+    path('puntajes/', views.notas),
+    path('ver_notas/', views.listarnotas)
 ]

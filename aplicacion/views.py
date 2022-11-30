@@ -7,6 +7,21 @@ from .forms import CrearNuevoAspirante
 def inicio(request):
     return render(request, 'index.html')
 
+def notas(puntosHojaVida, puntosExperiencia, puntosPostgrados, puntosCertificaciones, puntosIngles):
+    a = puntosHojaVida
+    b = puntosExperiencia
+    c = puntosPostgrados
+    d = puntosCertificaciones
+    e = puntosIngles
+    result = a+b+c+d+e
+    return HttpResponse ("<h2> Puntos del aspirante : %s</h2> " %result)
+
+def listarnotas(request):
+    evaluacionadmision = EvaluacionAdmision.objects.all()
+    context = ({'evaluacionadmision': evaluacionadmision })
+    return render(request, 'ver_notas.html', context)
+
+
 def ListarAspirantes(request):
     aspirantes = list(Aspirante.objects.values()) 
     return JsonResponse(aspirantes, safe = False)
@@ -31,4 +46,3 @@ def CrearAspirante(request):
         apellido = request.POST['apellido'], profesion = request.POST['profesion'], 
         edad = request.POST['edad'], ciudad = request.POST['ciudad'])
         return redirect('/aplicacion/')
-    

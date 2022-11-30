@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Ver notas</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous" />
+    
+
+  </head>
+  <body>
+    <h1>Aspirantes admitidos</h1>
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">fecha</th>
+          <th scope="col">aspirante</th>
+          <th scope="col">estadoadmision</th>
+          <th scope="col">cargo</th>
+          <th scope="col">puntosHojaVida</th>
+          <th scope="col">puntosExperiencia</th>
+          <th scope="col">puntosPostgrados</th>
+          <th scope="col">puntosCertificaciones</th>
+          <th scope="col">puntosIngles</th>
+          <th scope="col">totalPuntos</th>
+        </tr>
+      </thead>
+      <tbody>
+          {% for evaluacion in evaluacionadmision %}
+            <tr>
+              <td>{{ evaluacion.fecha }}</td>
+              <td>{{ evaluacion.aspirante }}</td>
+              <td>{{ evaluacion.estadoadmision }}</td>
+              <td>{{ evaluacion.cargo }}</td>
+              <td>{{ evaluacion.puntosHojaVida}}</td>
+              <td>{{ evaluacion.puntosExperiencia }}</td>
+              <td>{{ evaluacion.puntosPostgrados }}</td>
+              <td>{{ evaluacion.puntosCertificaciones }}</td>
+              <td>{{ evaluacion.puntosIngles }}</td>
+              <td>{{ evaluacion.totalPuntos }}</td>
+            </tr>
+          {% endfor %}
+      </tbody>
+    </table>
+
+    <a href="/">
+      <button>Volver</button>
+   </a>
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
+  </body>
+</html>
