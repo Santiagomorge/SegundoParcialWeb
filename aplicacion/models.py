@@ -45,5 +45,5 @@ class EvaluacionAdmision(models.Model):
     cargo = models.ForeignKey(Cargo, on_delete=models.CASCADE)
 
     def __str__(self):
-        return self.pk
+        return str(self.totalPuntos)
 
